@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../components/Footer'
 import AOS from "aos";
+import ScrollProgressBar from '../components/ScrollProgressBar';
 
 const MainLayout = () => {
      useEffect(() => {
@@ -19,8 +20,9 @@ const MainLayout = () => {
   }, [location]);
   return (
      <>
+     <ScrollProgressBar/>
       <Navbar />
-
+      
       <main>
         <Outlet />
       </main>

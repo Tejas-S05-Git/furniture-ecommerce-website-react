@@ -103,16 +103,14 @@ const Footer = () => {
                 </h3>
 
                 <i
-                  className={`ri-arrow-down-s-line text-white text-3xl lg:hidden transition duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`ri-arrow-down-s-line text-white text-3xl lg:hidden transition duration-300 ${openIndex === index ? "rotate-180" : ""
+                    }`}
                 ></i>
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  openIndex === index ? "max-h-[300px]" : "max-h-0"
-                } lg:max-h-[500px]`}
+                className={`overflow-hidden transition-all duration-500 ${openIndex === index ? "max-h-[300px]" : "max-h-0"
+                  } lg:max-h-[500px]`}
               >
                 <ul className="space-y-5 mt-8">
                   {section.links.map((link) => (
@@ -172,8 +170,6 @@ const Footer = () => {
       {/* Bottom */}
       <div
         className="bg-accent border-t border-black/10"
-        data-aos="fade-up"
-        data-aos-delay="500"
       >
         <div className="max-w-[1400px] mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center gap-5">
           <p className="text-zinc-900 text-center md:text-left font-medium">
@@ -200,27 +196,18 @@ const Footer = () => {
 
       {/* Back To Top */}
       <button
-  type="button"
-  onClick={scrollToTop}
-  aria-label="Back to top"
-  className={`fixed bottom-6 right-6 md:bottom-8 md:right-8
-  w-12 h-12 md:w-14 md:h-14
-  rounded-full
-  bg-accent
-  text-primary
-  text-2xl md:text-3xl
-  shadow-2xl
-  flex items-center justify-center
-  hover:scale-110 transition-all duration-300
-  z-[9999]
-  ${
-    showTopBtn
-      ? "opacity-100 visible"
-      : "opacity-0 invisible"
-  }`}
->
-  <i className="ri-arrow-up-line"></i>
-</button>
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        className={`fixed bottom-6 right-6 md:bottom-8 md:right-8
+         w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent text-primary text-2xl md:text-3xl shadow-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 z-[9999]
+  ${showTopBtn
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
+          }`}
+      >
+        <i className="ri-arrow-up-line"></i>
+      </button>
     </footer>
   );
 };
