@@ -3,6 +3,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const heroCards = [
     {
@@ -29,6 +31,8 @@ const heroCards = [
 ];
 
 export default function HeroSection() {
+
+  const navigate = useNavigate();
     return (
          <section className="bg-secondary overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 lg:py-20">
@@ -86,18 +90,18 @@ export default function HeroSection() {
               data-aos-delay="300"
               className="flex flex-col sm:flex-row items-center lg:items-start gap-4 mt-8 justify-center lg:justify-start"
             >
-              <button className="bg-primary hover:bg-accent hover:text-primary transition-all duration-300 text-white font-semibold px-8 py-4 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl">
+              <button onClick={()=> navigate('/shop')} className="bg-primary hover:bg-accent hover:text-primary transition-all duration-300 text-white font-semibold px-8 py-4 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl">
                 Shop Now
                 <i className="ri-arrow-right-line text-xl"></i>
               </button>
 
-              <a
-                href="/shop"
+              <Link
+                to="/shop"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 font-semibold px-8 py-4 rounded-full flex items-center gap-2"
               >
                 View All Products
                 <i className="ri-arrow-right-up-line text-xl"></i>
-              </a>
+              </Link>
             </div>
 
             {/* RATINGS */}

@@ -2,8 +2,11 @@ import React from 'react'
 import chairImg from '../assets/images/chair_1-removebg-preview.png'
 import sofaImg from '../assets/images/sofa-removebg-preview.png'
 import lightingImg from '../assets/images/sealing lightt.png'
+import { useNavigate } from 'react-router-dom'
+
 
 const CategorySection = () => {
+    const navigate = useNavigate();
     return (
         <section className="bg-white py-14 md:py-20 relative overflow-hidden">
             {/* BLUR SHAPES */}
@@ -49,7 +52,7 @@ const CategorySection = () => {
                                 <li>Club Chair</li>
                             </ul>
 
-                            <button className="mt-8 md:mt-10 w-14 h-14 rounded-full bg-primary text-white text-2xl flex items-center justify-center">
+                            <button onClick={()=> navigate('/shop')} className="mt-8 md:mt-10 w-14 h-14 rounded-full bg-primary text-white text-2xl flex items-center justify-center">
                                 <i className="ri-arrow-right-up-line"></i>
                             </button>
                         </div>
@@ -92,7 +95,7 @@ const CategorySection = () => {
                                     <li>Curved Sofa</li>
                                 </ul>
 
-                                <button className="mt-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
+                                <button onClick={()=> navigate('/shop')} className="mt-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
                                     <i className="ri-arrow-right-up-line"></i>
                                 </button>
                             </div>
@@ -130,7 +133,7 @@ const CategorySection = () => {
                                     <li>Wall Lights</li>
                                 </ul>
 
-                                <button className="mt-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
+                                <button onClick={()=> navigate('/shop')} className="mt-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
                                     <i className="ri-arrow-right-up-line"></i>
                                 </button>
                             </div>
