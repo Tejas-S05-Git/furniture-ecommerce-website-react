@@ -13,6 +13,7 @@ import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
 import Checkout from './components/Checkout'
 import Payment from './pages/Payment'
+import OrderSuccess from './pages/OrderSuccess'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout/>}/>
       <Route path="/payment" element={<Payment />} />
+      <Route path="/order-success" element={<OrderSuccess />}/>
       <Route path="/categories" element={<Categories/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>

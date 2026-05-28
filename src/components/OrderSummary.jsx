@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
-const OrderSummary = ({ showButton = true, paymentButton = false, }) => {
+const OrderSummary = ({ showButton = true, paymentButton = false, onPaymentClick, }) => {
   const { cartItems, cartSubtotal } =
     useCart();
 
@@ -67,7 +67,8 @@ const OrderSummary = ({ showButton = true, paymentButton = false, }) => {
 
 {paymentButton && (
   <button
-    className="w-full mt-8 h-14 rounded-full bg-primary text-white font-semibold"
+    onClick={onPaymentClick}
+    className="w-full mt-8 h-14 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-all duration-300"
   >
     Confirm Payment
   </button>

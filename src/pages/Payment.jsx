@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import OrderSummary from "../components/OrderSummary";
 import FeaturesSection from "../components/FeaturesSection";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
-    const [paymentMethod, setPaymentMethod] =
-        useState("paypal");
+    const [paymentMethod, setPaymentMethod] = useState("paypal");
+    const navigate = useNavigate();
 
+    const handlePayment = () => {
+  toast.loading("Processing payment...");
+
+  setTimeout(() => {
+    toast.dismiss();
+
+    toast.success("Payment Successful 🎉");
+
+    navigate("/order-success");
+  }, 1800);
+};
     return (
         <>
             <section className="bg-secondary py-16 lg:py-24 overflow-hidden">
@@ -183,7 +196,7 @@ const Payment = () => {
                             data-aos="fade-left"
                             data-aos-delay="200"
                         >
-                            <OrderSummary showButton={false} paymentButton={true} />
+                            <OrderSummary showButton={false} paymentButton={true} onPaymentClick={handlePayment} />
                             <div
                                 className="mt-6"
                                 data-aos="fade-up"
