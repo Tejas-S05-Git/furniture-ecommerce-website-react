@@ -1,7 +1,8 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
-const OrderSummary = () => {
+const OrderSummary = ({ showButton = true, paymentButton = false, }) => {
   const { cartItems, cartSubtotal } =
     useCart();
 
@@ -11,6 +12,8 @@ const OrderSummary = () => {
 
   const total =
     cartSubtotal + shipping + tax - discount;
+
+  const navigate = useNavigate();  
 
   return (
     <div
@@ -53,9 +56,22 @@ const OrderSummary = () => {
         <span>${total}</span>
       </div>
 
-      <button className="w-full mt-8 h-14 rounded-full bg-primary text-white font-semibold">
-        Proceed to Checkout
-      </button>
+    {showButton && (
+  <button
+    onClick={() => navigate("/checkout")}
+    className="w-full mt-8 h-14 rounded-full bg-primary text-white font-semibold"
+  >
+    Proceed to Checkout
+  </button>
+)}
+
+{paymentButton && (
+  <button
+    className="w-full mt-8 h-14 rounded-full bg-primary text-white font-semibold"
+  >
+    Confirm Payment
+  </button>
+)}
     </div>
   );
 };

@@ -11,6 +11,8 @@ import Blog from './pages/Blog'
 import MainLayout from './MainLayout/MainLayout'
 import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
+import Checkout from './components/Checkout'
+import Payment from './pages/Payment'
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
       <Route path="/shop" element={<Shop/>}/>
       <Route path="/product/:id" element={<ProductDetails/>}/>
       <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout/>}/>
+      <Route path="/payment" element={<Payment />} />
       <Route path="/categories" element={<Categories/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
