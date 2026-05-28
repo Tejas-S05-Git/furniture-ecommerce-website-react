@@ -2,8 +2,10 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from "../context/CartContext";
 import toast from "react-hot-toast";
+import { useWishlist } from "../context/WishlistContext";
 
 const ProductCard = ({ product }) => {
+  const { addToWishlist } = useWishlist();
   const { addToCart } = useCart();
   const navigate = useNavigate();
   return (
@@ -24,9 +26,15 @@ const ProductCard = ({ product }) => {
 
           {/* Icons */}
           <div className="absolute top-5 right-5 flex flex-col gap-3 z-10 opacity-0 translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 duration-500">
-            <button className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-xl shadow-md hover:bg-primary hover:text-white transition-all duration-300">
-              <i className="ri-heart-line"></i>
-            </button>
+            <button
+  onClick={(e) => {
+    e.preventDefault();
+    addToWishlist(product);
+  }}
+  className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-xl shadow-md hover:bg-primary hover:text-white transition-all duration-300"
+>
+  <i className="ri-heart-line"></i>
+</button>
 
             <button className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-xl shadow-md hover:bg-primary hover:text-white transition-all duration-300">
               <i className="ri-eye-line"></i>

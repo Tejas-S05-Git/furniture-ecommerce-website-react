@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -12,6 +14,8 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const { wishlistItems } = useWishlist();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [topBarVisible, setTopBarVisible] = useState(true);
   const { cartItems } = useCart();
@@ -131,7 +135,19 @@ export default function Navbar() {
               className="hidden md:flex items-center gap-5 text-[24px] text-zinc-800"
             >
               <i className="ri-search-line cursor-pointer hover:text-primary transition"></i>
-              <i className="ri-heart-line cursor-pointer hover:text-primary transition"></i>
+             <div
+  onClick={() => navigate("/wishlist")}
+  className="relative cursor-pointer"
+>
+  <i className="ri-heart-line hover:text-primary transition text-2xl"></i>
+
+  {wishlistItems.length > 0 && (
+    <span className="absolute -top-2 -right-2 min-w-[20px] h-5 px-1 rounded-full bg-accent text-black text-[11px] font-bold flex items-center justify-center leading-none">
+      {wishlistItems.length}
+    </span>
+  )}
+</div>
+              
               <Link to="/cart" className="relative">
                 <i className="ri-shopping-cart-2-line text-2xl cursor-pointer hover:text-primary transition"></i>
 

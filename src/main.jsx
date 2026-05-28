@@ -8,11 +8,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import CartProvider from './context/CartContext.jsx';
 import { Toaster } from "react-hot-toast";
+import { WishlistProvider } from "./context/WishlistContext";
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <CartProvider>
+      <WishlistProvider>
       <App />
+      </WishlistProvider>
       <Toaster position="top-right" toastOptions={{duration: 2500, style: { background: "#204A25",color: "#fff", borderRadius: "14px", padding: "14px 18px", fontWeight: "500",},}}/>
     </CartProvider>
   </BrowserRouter>
