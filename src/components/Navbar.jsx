@@ -1,50 +1,52 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Shop", path: "/shop" },
-    { name: "Categories", path: "/categories" },
-    { name: "About Us", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Blog", path: "/blog" },
+  { name: "Home", path: "/" },
+  { name: "Shop", path: "/shop" },
+  { name: "Categories", path: "/categories" },
+  { name: "About Us", path: "/about" },
+  { name: "Contact Us", path: "/contact" },
+  { name: "Blog", path: "/blog" },
 ];
 
 export default function Navbar() {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [topBarVisible, setTopBarVisible] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [topBarVisible, setTopBarVisible] = useState(true);
+  const { cartItems } = useCart();
 
-    const openSidebar = () => {
-        setSidebarOpen(true);
-        document.body.style.overflow = "hidden";
+  const openSidebar = () => {
+    setSidebarOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+    document.body.style.overflow = "auto";
+  };
+
+  const closeTopBar = () => {
+    setTopBarVisible(false);
+  };
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        closeSidebar();
+      }
     };
 
-    const closeSidebar = () => {
-        setSidebarOpen(false);
-        document.body.style.overflow = "auto";
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "auto";
     };
+  }, []);
 
-    const closeTopBar = () => {
-        setTopBarVisible(false);
-    };
-
-    useEffect(() => {
-        const handleEscape = (e) => {
-            if (e.key === "Escape") {
-                closeSidebar();
-            }
-        };
-
-        document.addEventListener("keydown", handleEscape);
-
-        return () => {
-            document.removeEventListener("keydown", handleEscape);
-            document.body.style.overflow = "auto";
-        };
-    }, []);
-
-    return (
-        <>
+  return (
+    <>
       {/* TOP BAR */}
       {topBarVisible && (
         <div
@@ -112,8 +114,7 @@ export default function Navbar() {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `transition duration-300 hover:text-primary ${
-                        isActive ? "text-primary" : ""
+                      `transition duration-300 hover:text-primary ${isActive ? "text-primary" : ""
                       }`
                     }
                   >
@@ -131,7 +132,15 @@ export default function Navbar() {
             >
               <i className="ri-search-line cursor-pointer hover:text-primary transition"></i>
               <i className="ri-heart-line cursor-pointer hover:text-primary transition"></i>
-              <i className="ri-shopping-cart-2-line cursor-pointer hover:text-primary transition"></i>
+              <Link to="/cart" className="relative">
+                <i className="ri-shopping-cart-2-line text-2xl cursor-pointer hover:text-primary transition"></i>
+
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-2 -right-2 min-w-[20px] h-5 px-1 rounded-full bg-accent text-black text-[11px] font-bold flex items-center justify-center leading-none">
+                    {cartItems.length}
+                  </span>
+                )}
+              </Link>
               <i className="ri-user-3-line cursor-pointer hover:text-primary transition"></i>
             </div>
 
@@ -150,18 +159,16 @@ export default function Navbar() {
       {/* OVERLAY */}
       <div
         onClick={closeSidebar}
-        className={`fixed inset-0 bg-black/40 z-40 transition-all duration-300 ${
-          sidebarOpen
+        className={`fixed inset-0 bg-black/40 z-40 transition-all duration-300 ${sidebarOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible"
-        }`}
+          }`}
       />
 
       {/* SIDEBAR */}
       <div
-        className={`fixed top-0 right-0 w-[300px] h-screen bg-white shadow-2xl z-50 p-6 transition-all duration-500 ease-in-out ${
-          sidebarOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 w-[300px] h-screen bg-white shadow-2xl z-50 p-6 transition-all duration-500 ease-in-out ${sidebarOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between border-b pb-4">
           <h1 className="text-3xl font-bold text-primary">Menu</h1>
@@ -178,8 +185,7 @@ export default function Navbar() {
                 to={item.path}
                 onClick={closeSidebar}
                 className={({ isActive }) =>
-                  `hover:text-primary transition ${
-                    isActive ? "text-primary" : ""
+                  `hover:text-primary transition ${isActive ? "text-primary" : ""
                   }`
                 }
               >
@@ -197,5 +203,5 @@ export default function Navbar() {
         </div>
       </div>
     </>
-    );
+  );
 }

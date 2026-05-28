@@ -9,6 +9,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import MainLayout from './MainLayout/MainLayout'
+import ProductDetails from './pages/ProductDetails'
+import Cart from './pages/Cart'
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
       <Route index element= {<Home/>}/>
       <Route path="/shop" element={<Shop/>}/>
+      <Route path="/product/:id" element={<ProductDetails/>}/>
+      <Route path="/cart" element={<Cart />} />
       <Route path="/categories" element={<Categories/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>

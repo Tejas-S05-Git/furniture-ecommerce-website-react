@@ -1,7 +1,13 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useCart } from "../context/CartContext";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
   return (
+    <Link to={`/product/${product.id}`}>
    <div
   className="group h-full flex flex-col"
   data-aos="fade-up"
@@ -26,9 +32,23 @@ const ProductCard = ({ product }) => {
         <i className="ri-eye-line"></i>
       </button>
 
-      <button className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-xl shadow-md hover:bg-primary hover:text-white transition-all duration-300">
-        <i className="ri-shopping-bag-line"></i>
-      </button>
+      <button
+  onClick={(e) => {
+    e.preventDefault();
+
+    addToCart(product, 1);
+
+    toast.success(
+      `${product.title} added to cart`
+    );
+
+    navigate("/cart");
+    
+  }}
+  className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-xl shadow-md hover:bg-primary hover:text-white transition-all duration-300"
+>
+  <i className="ri-shopping-bag-line"></i>
+</button>
     </div>
 
     {/* Image */}
@@ -37,7 +57,7 @@ const ProductCard = ({ product }) => {
       alt={product.title}
       loading="lazy"
       decoding="async"
-      className="w-full h-[230px] md:h-[260px] object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
+      className="w-full h-[280px] md:h-[320px] object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
     />
   </div>
 
@@ -67,6 +87,7 @@ const ProductCard = ({ product }) => {
     </div>
   </div>
 </div>
+</Link>
   )
 }
 

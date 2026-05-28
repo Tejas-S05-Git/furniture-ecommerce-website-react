@@ -1,3 +1,21 @@
+// १. आधी सर्व लोकल इमेजेस वरती इम्पोर्ट करा
+import chair1 from "../../public/images/chair_1-removebg-preview.png";
+import chair3 from "../../public/images/chair 3.png";
+import gamingChair from "../../public/images/gaming_chair-removebg-preview.png";
+import greenLoungeChair from "../../public/images/green_Lounge_Chair-removebg-preview.png";
+import woodenDiningTable from "../../public/images/wooden_dining_table-removebg-preview.png";
+import sealingLight from "../../public/images/sealing lightt.png";
+import greenWoodenNightstand from "../../public/images/Green_Wooden_Nightstand-removebg-preview.png";
+import metalOfficeCabinet from "../../public/images/Metal_Office_Cabinet-removebg-preview.png";
+import woodenDeskLamp from "../../public/images/Wooden_Desk_Lamp-removebg-preview.png";
+import kitchenWireStool from "../../public/images/Kitchen_Wire_Stool-removebg-preview.png";
+import walnutCoffeeTable from "../../public/images/Walnut_Coffee_Table-removebg-preview.png";
+import steelFrameBookshelf from "../../public/images/Steel_Frame_Bookshelf-removebg-preview.png";
+import greenFloorLamp from "../../public/images/Green_Floor_Lamp-removebg-preview.png";
+import woodenBedroomWardrobe from "../../public/images/Wooden_Bedroom_Wardrobe-removebg-preview.png";
+import kitchenStorageRack from "../../public/images/Kitchen_Storage_Rack-removebg-preview.png";
+
+// २. आता प्रॉडक्ट्सच्या लिस्टमध्ये त्या व्हेरिएबल्सचा वापर करा
 export const products = [
   {
     id: 1,
@@ -34,8 +52,8 @@ export const products = [
     quantity: 12,
     socialLinks: { facebook: "#", pinterest: "#", instagram: "#" },
     images: [
-      "../../public/images/chair_1-removebg-preview.png",
-      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600",
+      chair1,
+      chair1,
     ],
     thumbnail: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600",
   },
@@ -74,8 +92,8 @@ export const products = [
     quantity: 8,
     socialLinks: { facebook: "#", instagram: "#" },
     images: [
-      "../../public/images/chair 3.png",
-      "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600",
+      chair3,
+      chair3,
     ],
     thumbnail: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600",
   },
@@ -114,8 +132,8 @@ export const products = [
     quantity: 15,
     socialLinks: { twitter: "#", instagram: "#" },
     images: [
-      "../../public/images/gaming_chair-removebg-preview.png",
-      "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600",
+      gamingChair,
+      gamingChair,
     ],
     thumbnail: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600",
   },
@@ -154,8 +172,8 @@ export const products = [
     quantity: 0,
     socialLinks: { pinterest: "#", instagram: "#" },
     images: [
-      "../../public/images/green_Lounge_Chair-removebg-preview.png",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600",
+      greenLoungeChair,
+      greenLoungeChair,
     ],
     thumbnail: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600",
   },
@@ -194,8 +212,8 @@ export const products = [
     quantity: 6,
     socialLinks: { facebook: "#", pinterest: "#" },
     images: [
-      "../../public/images/wooden_dining_table-removebg-preview.png",
-      "https://images.unsplash.com/photo-1577140917170-285929fb55b7?w=600",
+      woodenDiningTable,
+      woodenDiningTable,
     ],
     thumbnail: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600",
   },
@@ -234,8 +252,8 @@ export const products = [
     quantity: 25,
     socialLinks: { instagram: "#", pinterest: "#" },
     images: [
-      "../../public/images/sealing lightt.png",
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600",
+      sealingLight,
+      sealingLight,
     ],
     thumbnail: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600",
   },
@@ -274,8 +292,8 @@ export const products = [
     quantity: 10,
     socialLinks: { facebook: "#", instagram: "#" },
     images: [
-      "../../public/images/Green_Wooden_Nightstand-removebg-preview.png",
-      "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600",
+      greenWoodenNightstand,
+      greenWoodenNightstand,
     ],
     thumbnail: "https://images.unsplash.com/photo-1532372320978-9b4d6a3a854c?w=600",
   },
@@ -314,8 +332,8 @@ export const products = [
     quantity: 0,
     socialLinks: { twitter: "#" },
     images: [
-      "../../public/images/Metal_Office_Cabinet-removebg-preview.png",
-      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600",
+      metalOfficeCabinet,
+      metalOfficeCabinet,
     ],
     thumbnail: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=600",
   },
@@ -354,8 +372,8 @@ export const products = [
     quantity: 40,
     socialLinks: { pinterest: "#", instagram: "#" },
     images: [
-      "../../public/images/Wooden_Desk_Lamp-removebg-preview.png",
-      "https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=600",
+      woodenDeskLamp,
+      woodenDeskLamp,
     ],
     thumbnail: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600",
   },
@@ -394,8 +412,8 @@ export const products = [
     quantity: 18,
     socialLinks: { facebook: "#", instagram: "#" },
     images: [
-      "../../public/images/Kitchen_Wire_Stool-removebg-preview.png",
-      "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600",
+      kitchenWireStool,
+      kitchenWireStool,
     ],
     thumbnail: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600",
   },
@@ -434,8 +452,8 @@ export const products = [
     quantity: 5,
     socialLinks: { pinterest: "#", instagram: "#" },
     images: [
-      "../../public/images/Walnut_Coffee_Table-removebg-preview.png",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600",
+      walnutCoffeeTable,
+      walnutCoffeeTable,
     ],
     thumbnail: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600",
   },
@@ -474,8 +492,8 @@ export const products = [
     quantity: 11,
     socialLinks: { facebook: "#", twitter: "#" },
     images: [
-      "../../public/images/Steel_Frame_Bookshelf-removebg-preview.png",
-      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=600",
+      steelFrameBookshelf,
+      steelFrameBookshelf,
     ],
     thumbnail: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600",
   },
@@ -514,8 +532,8 @@ export const products = [
     quantity: 0,
     socialLinks: { instagram: "#", pinterest: "#" },
     images: [
-      "../../public/images/Green_Floor_Lamp-removebg-preview.png",
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600",
+      greenFloorLamp,
+      greenFloorLamp,
     ],
     thumbnail: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600",
   },
@@ -554,8 +572,8 @@ export const products = [
     quantity: 3,
     socialLinks: { facebook: "#", pinterest: "#" },
     images: [
-      "../../public/images/Wooden_Bedroom_Wardrobe-removebg-preview.png",
-      "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600",
+      woodenBedroomWardrobe,
+      woodenBedroomWardrobe,
     ],
     thumbnail: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600",
   },
@@ -594,8 +612,8 @@ export const products = [
     quantity: 20,
     socialLinks: { facebook: "#", instagram: "#" },
     images: [
-      "../../public/images/Kitchen_Storage_Rack-removebg-preview.png",
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600",
+      kitchenStorageRack,
+      kitchenStorageRack,
     ],
     thumbnail: "https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600",
   }

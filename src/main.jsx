@@ -6,9 +6,14 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import CartProvider from './context/CartContext.jsx';
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <App />
+    <CartProvider>
+      <App />
+      <Toaster position="top-right" toastOptions={{duration: 2500, style: { background: "#204A25",color: "#fff", borderRadius: "14px", padding: "14px 18px", fontWeight: "500",},}}/>
+    </CartProvider>
   </BrowserRouter>
 )
