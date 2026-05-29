@@ -4,11 +4,21 @@ import { Link } from "react-router-dom";
 const footerSections = [
   {
     title: "Company",
-    links: ["About Us", "Blog", "Contact Us", "Career"],
+    links: [
+      { name: "About Us", path: "/about" },
+      { name: "Blog", path: "/blog" },
+      { name: "Contact Us", path: "/contact" },
+      { name: "Career", path: "/career" },
+    ],
   },
   {
     title: "Customer Services",
-    links: ["My Account", "Track Order", "Return", "FAQ"],
+    links: [
+      { name: "My Account", path: "/my-account" },
+      { name: "Track Order", path: "/track-order" },
+      { name: "Return", path: "/return-policy" },
+      { name: "FAQ", path: "/faq" },
+    ],
   },
 ];
 
@@ -113,16 +123,16 @@ const Footer = () => {
                   } lg:max-h-[500px]`}
               >
                 <ul className="space-y-5 mt-8">
-                  {section.links.map((link) => (
-                    <li key={link}>
-                      <Link
-                        to="/"
-                        className="text-white/80 hover:text-accent hover:translate-x-2 duration-300 inline-block"
-                      >
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
+                 {section.links.map((link) => (
+  <li key={link.name}>
+    <Link
+      to={link.path}
+      className="text-white/80 hover:text-accent hover:translate-x-2 duration-300 inline-block"
+    >
+      {link.name}
+    </Link>
+  </li>
+))}
                 </ul>
               </div>
             </div>

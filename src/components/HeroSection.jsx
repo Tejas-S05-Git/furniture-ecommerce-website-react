@@ -155,80 +155,107 @@ export default function HeroSection() {
 
           {/* RIGHT */}
 
-          <div
-            data-aos="fade-left"
-            data-aos-duration="1200"
-            className="relative w-full min-w-0 overflow-hidden"
-          >
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              loop={true}
-              spaceBetween={25}
-              grabCursor={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              navigation={{
-                nextEl: ".heroNext",
-                prevEl: ".heroPrev",
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                1024: {
-                  slidesPerView: 1.4,
-                },
-              }}
-            >
-              {heroCards.map((card, i) => (
-                <SwiperSlide key={i}>
-                  <div className="bg-white rounded-[28px] p-4 shadow-md hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
-                    <div className="relative overflow-hidden rounded-[24px]">
-                      <img
-                        src={card.image}
-                        alt={card.title}
-                        className="w-full h-[280px] md:h-[340px] object-cover rounded-[24px] hover:scale-105 duration-700"
-                      />
+         <div
+  data-aos="fade-left"
+  data-aos-duration="1200"
+  className="relative w-full min-w-0 overflow-hidden"
+>
+  <Swiper
+    modules={[Navigation, Autoplay]}
+    loop={true}
+    spaceBetween={25}
+    grabCursor={true}
+    autoplay={{
+      delay: 3000,
+      disableOnInteraction: false,
+    }}
+    navigation={{
+      nextEl: ".heroNext",
+      prevEl: ".heroPrev",
+    }}
+    breakpoints={{
+      0: {
+        slidesPerView: 1,
+      },
+      1024: {
+        slidesPerView: 1.4,
+      },
+    }}
+  >
+    {heroCards.map((card, i) => (
+      <SwiperSlide key={i}>
+        <div className="group bg-white rounded-[28px] p-4 border border-zinc-100 shadow-[0_10px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500">
+          
+          {/* IMAGE WRAPPER */}
+          <div className="relative overflow-hidden rounded-[24px]">
 
-                      <div className="absolute bottom-4 right-4 bg-[#5A3B2E] text-white px-4 py-2 rounded-full text-base font-semibold">
-                        {card.price}
-                      </div>
-                    </div>
+            {/* PRODUCT IMAGE */}
+            <img
+              src={card.image}
+              alt={card.title}
+              className="w-full h-[280px] md:h-[340px] object-cover rounded-[24px] group-hover:scale-110 transition-transform duration-700 ease-out"
+            />
 
-                    <div className="flex items-center justify-between mt-5">
-                      <div>
-                        <h2 className="text-xl md:text-2xl font-bold text-zinc-900">
-                          {card.title}
-                        </h2>
+            {/* DARK OVERLAY */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-[24px]"></div>
 
-                        <p className="text-zinc-600 mt-1">
-                          {card.items}
-                        </p>
-                      </div>
 
-                      <button className="w-14 h-14 rounded-full bg-primary text-white text-2xl flex items-center justify-center hover:rotate-45 duration-300">
-                        <i className="ri-arrow-right-up-line"></i>
-                      </button>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            {/* CATEGORY BADGE */}
+            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium text-zinc-800 shadow-sm">
+              New Arrival
+            </div>
 
-            {/* NAV BUTTONS */}
-
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button className="heroPrev w-12 h-12 rounded-full bg-primary text-white text-xl flex items-center justify-center hover:scale-110 duration-300 shadow-md">
-                <i className="ri-arrow-left-line"></i>
-              </button>
-
-              <button className="heroNext w-12 h-12 rounded-full bg-accent text-zinc-900 text-xl flex items-center justify-center hover:scale-110 duration-300 shadow-md">
-                <i className="ri-arrow-right-line"></i>
-              </button>
+            {/* PRICE BADGE */}
+            <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md text-primary px-5 py-2 rounded-full font-bold shadow-lg">
+              {card.price}
             </div>
           </div>
+
+          {/* CONTENT */}
+          <div className="flex items-center justify-between mt-5">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-zinc-900">
+                {card.title}
+              </h2>
+
+              {/* RATING */}
+              <div className="flex items-center gap-1 mt-2 text-accent text-sm">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-half-fill"></i>
+
+                <span className="text-zinc-500 ml-2">(4.8)</span>
+              </div>
+
+              <p className="text-zinc-600 mt-2">{card.items}</p>
+            </div>
+
+            {/* BUTTON */}
+            <button
+              onClick={() => navigate("/shop")}
+              className="w-14 h-14 rounded-full bg-primary text-white text-2xl flex items-center justify-center hover:rotate-45 hover:scale-110 duration-300 shadow-md"
+            >
+              <i className="ri-arrow-right-up-line"></i>
+            </button>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+
+  {/* NAV BUTTONS */}
+  <div className="flex items-center justify-center gap-4 mt-8">
+    <button className="heroPrev w-12 h-12 rounded-full bg-primary text-white text-xl flex items-center justify-center hover:scale-110 duration-300 shadow-md">
+      <i className="ri-arrow-left-line"></i>
+    </button>
+
+    <button className="heroNext w-12 h-12 rounded-full bg-accent text-zinc-900 text-xl flex items-center justify-center hover:scale-110 duration-300 shadow-md">
+      <i className="ri-arrow-right-line"></i>
+    </button>
+  </div>
+</div>
         </div>
       </div>
     </section>

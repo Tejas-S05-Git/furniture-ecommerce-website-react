@@ -15,6 +15,8 @@ import Checkout from './components/Checkout'
 import Payment from './pages/Payment'
 import OrderSuccess from './pages/OrderSuccess'
 import Wishlist from './pages/Wishlist'
+import TrackOrder from './pages/TrackOrder'
+import OrderStatus from './pages/OrderStatus'
 
 const App = () => {
   return (
@@ -28,6 +30,9 @@ const App = () => {
       <Route path="/payment" element={<Payment />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/order-success" element={<OrderSuccess />}/>
+      <Route path="/track-order" element={<TrackOrder />}/>
+      <Route path="/order-status" element={<OrderStatus />}/>
+
       <Route path="/categories" element={<Categories/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
