@@ -13,7 +13,40 @@ const navItems = [
   { name: "Blog", path: "/blog" },
 ];
 
+const megaMenuData = {
+  Chairs: [
+    "Gaming Chair",
+    "Office Chair",
+    "Armchair",
+    "Dining Chair",
+    "Bar Stool",
+  ],
+
+  Sofa: [
+    "Reception Sofa",
+    "Sectional Sofa",
+    "Lounge Sofa",
+    "Curved Sofa",
+  ],
+
+  Lighting: [
+    "Table Lights",
+    "Floor Lights",
+    "Ceiling Lights",
+    "Wall Lights",
+  ],
+
+  Tables: [
+    "Dining Tables",
+    "Coffee Tables",
+    "Side Tables",
+    "Console Tables",
+  ],
+};
+
 export default function Navbar() {
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("Chairs");
   const navigate = useNavigate();
   const { wishlistItems } = useWishlist();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -109,23 +142,112 @@ export default function Navbar() {
 
             {/* DESKTOP MENU */}
             <ul className="hidden lg:flex items-center gap-10 text-[18px] font-medium text-zinc-800">
-              {navItems.map((item, index) => (
-                <li
-                  key={item.name}
-                  data-aos="fade-down"
-                  data-aos-delay={100 + index * 100}
-                >
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) =>
-                      `transition duration-300 hover:text-primary ${isActive ? "text-primary" : ""
-                      }`
-                    }
-                  >
-                    {item.name}
-                  </NavLink>
-                </li>
-              ))}
+             {navItems.map((item, index) => (
+  <li
+    key={item.name}
+    className="relative group"
+    data-aos="fade-down"
+    data-aos-delay={100 + index * 100}
+    onMouseEnter={() =>
+      item.name === "Categories" && setShowMegaMenu(true)
+    }
+    onMouseLeave={() =>
+      item.name === "Categories" && setShowMegaMenu(false)
+    }
+  >
+    <NavLink
+      to={item.path}
+      className={({ isActive }) =>
+        `transition duration-300 hover:text-primary ${
+          isActive ? "text-primary" : ""
+        }`
+      }
+    >
+      {item.name}
+    </NavLink>
+
+    {/* ONLY FOR CATEGORIES */}
+    {item.name === "Categories" && showMegaMenu && (
+      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[1240px] bg-white rounded-[30px] shadow-2xl p-10 z-50 border border-zinc-100">
+
+        <div className="grid grid-cols-5 gap-10">
+
+          {/* CHAIRS */}
+          <div>
+            <h3 className="font-semibold text-[22px] mb-5">
+              Chairs
+            </h3>
+
+            <div className="space-y-4 text-zinc-500">
+              <button onClick={() => navigate("/shop?category=Gaming Chair")} className="block hover:text-primary">Gaming Chair</button>
+              <button onClick={() => navigate("/shop?category=Office Chair")} className="block hover:text-primary">Office Chair</button>
+              <button onClick={() => navigate("/shop?category=Armchair")} className="block hover:text-primary">Armchair</button>
+              <button onClick={() => navigate("/shop?category=Dining Chair")} className="block hover:text-primary">Dining Chair</button>
+              <button onClick={() => navigate("/shop?category=Bar Stool")} className="block hover:text-primary">Bar Stool</button>
+            </div>
+          </div>
+
+          {/* SOFA */}
+          <div>
+            <h3 className="font-semibold text-[22px] mb-5">
+              Sofa
+            </h3>
+
+            <div className="space-y-4 text-zinc-500">
+              <button onClick={() => navigate("/shop?category=Reception Sofa")} className="block hover:text-primary">Reception Sofa</button>
+              <button onClick={() => navigate("/shop?category=Sectional Sofa")} className="block hover:text-primary">Sectional Sofa</button>
+              <button onClick={() => navigate("/shop?category=Lounge Sofa")} className="block hover:text-primary">Lounge Sofa</button>
+              <button onClick={() => navigate("/shop?category=Curved Sofa")} className="block hover:text-primary">Curved Sofa</button>
+            </div>
+          </div>
+
+          {/* LIGHTING */}
+          <div>
+            <h3 className="font-semibold text-[22px] mb-5">
+              Lighting
+            </h3>
+
+            <div className="space-y-4 text-zinc-500">
+              <button onClick={() => navigate("/shop?category=Table Lights")} className="block hover:text-primary">Table Lights</button>
+              <button onClick={() => navigate("/shop?category=Floor Lights")} className="block hover:text-primary">Floor Lights</button>
+              <button onClick={() => navigate("/shop?category=Ceiling Lights")} className="block hover:text-primary">Ceiling Lights</button>
+              <button onClick={() => navigate("/shop?category=Wall Lights")} className="block hover:text-primary">Wall Lights</button>
+            </div>
+          </div>
+
+          {/* TABLES */}
+          <div>
+            <h3 className="font-semibold text-[22px] mb-5">
+              Tables
+            </h3>
+
+            <div className="space-y-4 text-zinc-500">
+              <button onClick={() => navigate("/shop?category=Dining Tables")} className="block hover:text-primary">Dining Tables</button>
+              <button onClick={() => navigate("/shop?category=Coffee Tables")} className="block hover:text-primary">Coffee Tables</button>
+              <button onClick={() => navigate("/shop?category=Side Tables")} className="block hover:text-primary">Side Tables</button>
+              <button onClick={() => navigate("/shop?category=Console Tables")} className="block hover:text-primary">Console Tables</button>
+            </div>
+          </div>
+
+          {/* OFFER BOX */}
+          <div className="bg-accent rounded-[24px] p-6">
+            <h3 className="text-3xl font-bold mb-4">
+              25% Off Furniture
+            </h3>
+
+            <button
+              onClick={() => navigate("/shop")}
+              className="bg-primary text-white px-6 py-3 rounded-full"
+            >
+              Shop Now
+            </button>
+          </div>
+
+        </div>
+      </div>
+    )}
+  </li>
+))}
             </ul>
 
             {/* DESKTOP ICONS */}
@@ -135,19 +257,19 @@ export default function Navbar() {
               className="hidden md:flex items-center gap-5 text-[24px] text-zinc-800"
             >
               <i className="ri-search-line cursor-pointer hover:text-primary transition"></i>
-             <div
-  onClick={() => navigate("/wishlist")}
-  className="relative cursor-pointer"
->
-  <i className="ri-heart-line hover:text-primary transition text-2xl"></i>
+              <div
+                onClick={() => navigate("/wishlist")}
+                className="relative cursor-pointer"
+              >
+                <i className="ri-heart-line hover:text-primary transition text-2xl"></i>
 
-  {wishlistItems.length > 0 && (
-    <span className="absolute -top-2 -right-2 min-w-[20px] h-5 px-1 rounded-full bg-accent text-black text-[11px] font-bold flex items-center justify-center leading-none">
-      {wishlistItems.length}
-    </span>
-  )}
-</div>
-              
+                {wishlistItems.length > 0 && (
+                  <span className="absolute -top-2 -right-2 min-w-[20px] h-5 px-1 rounded-full bg-accent text-black text-[11px] font-bold flex items-center justify-center leading-none">
+                    {wishlistItems.length}
+                  </span>
+                )}
+              </div>
+
               <Link to="/cart" className="relative">
                 <i className="ri-shopping-cart-2-line text-2xl cursor-pointer hover:text-primary transition"></i>
 
@@ -176,8 +298,8 @@ export default function Navbar() {
       <div
         onClick={closeSidebar}
         className={`fixed inset-0 bg-black/40 z-40 transition-all duration-300 ${sidebarOpen
-            ? "opacity-100 visible"
-            : "opacity-0 invisible"
+          ? "opacity-100 visible"
+          : "opacity-0 invisible"
           }`}
       />
 
