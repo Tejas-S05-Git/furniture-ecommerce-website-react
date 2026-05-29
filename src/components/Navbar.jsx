@@ -157,7 +157,7 @@ export default function Navbar() {
                   </span>
                 )}
               </Link>
-              <i className="ri-user-3-line cursor-pointer hover:text-primary transition"></i>
+              <Link to="/my-account"><i className="ri-user-3-line cursor-pointer hover:text-primary transition"></i></Link>
             </div>
 
             {/* MOBILE BTN */}

@@ -18,6 +18,7 @@ import Wishlist from './pages/Wishlist'
 import TrackOrder from './pages/TrackOrder'
 import OrderStatus from './pages/OrderStatus'
 import FaqSection from './pages/FaqSection'
+import MyAccount from './pages/MyAccount'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
       <Route path="/track-order" element={<TrackOrder />}/>
       <Route path="/order-status" element={<OrderStatus />}/>
       <Route path="/faq-section" element={<FaqSection />}/>
+      <Route path="/my-account" element={<MyAccount />}/>
 
       <Route path="/categories" element={<Categories/>}/>
       <Route path="/about" element={<About/>}/>

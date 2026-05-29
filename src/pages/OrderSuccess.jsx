@@ -4,9 +4,21 @@ import HeroPage from "../components/HeroPage";
 import { useCart } from "../context/CartContext";
 import products from "../data/products";
 import FeaturesSection from "../components/FeaturesSection";
+import { useOrders } from "../context/OrderContext";
+import { useEffect } from "react";
 
 const OrderSuccess = () => {
+    const { placeOrder } = useOrders();
     const { cartItems, cartSubtotal } = useCart();
+    useEffect(() => {
+  if (cartItems.length > 0) {
+    placeOrder(
+      cartItems,
+      cartSubtotal,
+      "Paypal"
+    );
+  }
+}, []);
     return (
         <>
             <HeroPage
