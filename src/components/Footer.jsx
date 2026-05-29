@@ -17,7 +17,7 @@ const footerSections = [
       { name: "My Account", path: "/my-account" },
       { name: "Track Order", path: "/track-order" },
       { name: "Return", path: "/return-policy" },
-      { name: "FAQ", path: "/faq" },
+      { name: "FAQ", path: "/faq-section" },
     ],
   },
 ];

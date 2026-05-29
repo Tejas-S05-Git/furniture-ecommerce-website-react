@@ -17,6 +17,7 @@ import OrderSuccess from './pages/OrderSuccess'
 import Wishlist from './pages/Wishlist'
 import TrackOrder from './pages/TrackOrder'
 import OrderStatus from './pages/OrderStatus'
+import FaqSection from './pages/FaqSection'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
       <Route path="/order-success" element={<OrderSuccess />}/>
       <Route path="/track-order" element={<TrackOrder />}/>
       <Route path="/order-status" element={<OrderStatus />}/>
+      <Route path="/faq-section" element={<FaqSection />}/>
 
       <Route path="/categories" element={<Categories/>}/>
       <Route path="/about" element={<About/>}/>
